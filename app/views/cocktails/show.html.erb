@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <h2> <%= @cocktail.name %> </h2>
+  </div>
+  <div class="row">
+    <h4> List of ingredients: </h4>
+  </div>
+  <div class="row">
+    <% if @cocktail.doses.empty? %>
+    <h6> <%= "No ingredients are registered for this cocktail..."%> -- <%= link_to "Add some !", new_cocktail_dose_path(@cocktail) %> </h6>
+    <% else %>
+    <% @cocktail.doses.each do |d| %>
+    <h6> <%= d.ingredient.name %> : <%= d.description %> dose(s)  ~ <%= link_to "Remove this ingredient", cocktail_dose_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } %>
+    </h6>
+    <h6> *** </h6>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="row">
+    <h6> Missing some ingredients? <%= link_to "Add them !", new_cocktail_dose_path(@cocktail) %></h6>
+  </div>
+  <div class="row">
+    <h6> <%= link_to '<button type ="button">Back to your list of cocktails !</button>'.html_safe, cocktails_path %></h6>
+  </div>
+</div>

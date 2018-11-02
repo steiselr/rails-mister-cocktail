@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h2>Add some ingredients to your <%= @cocktail.name %> ! </h2>
+    <div class="form-group">
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+       <div class="form-group">
+      <%= f.error_notification %>
+      </div>
+       <div class="form-group">
+      <%= f.input :description, input_html: { class: 'form-control'}%>
+      </div>
+      <div class="form-group">
+      <%= f.association :ingredient, collection: @ingredients, prompt: "Choose an ingredient", input_html: { class: 'form-control'} %>
+      <%= f.submit "Add !", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

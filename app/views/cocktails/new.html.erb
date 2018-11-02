@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h4> Oh oh oh... What kind of delicious cocktail would you like to add to your list? </h4>
+    <div class="form-group">
+      <%= simple_form_for [@cocktail] do |f| %>
+    </div>
+    <div class="form-group">
+    <%= f.error_notification %>
+    </div>
+    <div class="from-group">
+    <%= f.input :name, input_html: { class: 'form-control'}%>
+    </div>
+    <div class="form-group">
+      <%= f.submit %>
+    </div>
+    <% end %>
+    </div>
+  </div>
+</div>

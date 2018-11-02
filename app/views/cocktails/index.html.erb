@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h1> List of my favorite Cocktails... </h1>
+    <p> To bring a hint of madness to your craziest parties... </p>
+  </div>
+  <div class="row">
+    <ul class= "list-unstyled">
+      <% @cocktails.each do |cocktail| %>
+        <li> <i class="fas fa-cocktail"></i> <%= link_to cocktail.name, cocktail_path(cocktail) %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="row">
+    <%= link_to '<button type ="button">Add a new cocktail to my list</button>'.html_safe, new_cocktail_path %>
+  </div>
+</div>
